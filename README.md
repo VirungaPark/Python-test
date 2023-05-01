@@ -20,5 +20,6 @@ Below you can find an example of the +flow forms we use to collect data in the f
 [Virunga-test.pptx](https://github.com/VirungaPark/Python-test/files/11365106/Virunga-test.pptx)
 
 Everything must be deployed on an AWS EC2 instance and accessible on a public URL. You can reuse an existing project, you don't have to go into the details at the granular level, the whole thing is to show that you manage to create the technical structure for the accomplishment of such a project.
+The final project needs to be pushed on this repo, along with the ec2 url (no need of a domain) plus test credentials example.
 
 For Virunga Foundation
