@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Users{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('admin.register') }}">Add</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<table>
+  <th>User Id</th>
+  <th>Username</th>
+  <th>Role</th>
+  <th colspan="2">Action</th>
+  {% for user in users %}
+  <tr>
+    <td>{{ user['id'] }}</td>
+    <td>{{ user['username'] }}</td>
+    <td>{{ user['role'] }}</td>
+    <td><a class="action" href="{{ url_for('admin.register', id=user['id']) }}">Edit</a></td>
+    <td><a class="action" href="{{ url_for('admin.register', id=user['id']) }}">Delete</a></td>
+  <tr>
+  {% endfor %}
+</table>
+{% endblock %}

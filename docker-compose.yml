@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: app
+      dockerfile: app.Dockerfile
+    stop_signal: SIGINT
+    environment:
+      - PORT=8000
+      - DEBUG=1
+      - JWT_SECRET_KEY=dev
+    ports:
+      - "8000:8000"
+  auth:
+    build:
+      context: auth
+      dockerfile: auth.Dockerfile
+    stop_signal: SIGINT
+    environment:
+      - PORT=9000
+      - DEBUG=1
+      - JWT_SECRET_KEY=dev
+    ports:
+      - "9000:9000"
+  web:
+    build:
+      context: web
+      dockerfile: web.Dockerfile
+    stop_signal: SIGINT
+    environment:
+      - PORT=10000
+      - DEBUG=1
+      - JWT_SECRET_KEY=dev
+      - AUTH_URL=http://localhost:9000
+    ports:
+      - "10000:10000"
